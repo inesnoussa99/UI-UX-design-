@@ -1,0 +1,180 @@
+<div class="editor-container">
+<div *ngIf="element; else noSelection">
+  <h3>Éditer : {{ element.type | uppercase }}</h3>
+
+  <!-- BUTTON -->
+  <div *ngIf="element.type === 'button'">
+    <label>Label :</label>
+    <input [(ngModel)]="element.properties['label']" />
+
+    <label>Couleur :</label>
+    <input type="color" [(ngModel)]="element.properties['color']" />
+
+    <label>Largeur (px) :</label>
+    <input type="number" [(ngModel)]="element.properties['width']" />
+
+    <label>Hauteur (px) :</label>
+    <input type="number" [(ngModel)]="element.properties['height']" />
+
+    <label>Action :</label>
+    <select [(ngModel)]="element.properties['action']">
+      <option value="submit">Submit</option>
+      <option value="reset">Reset</option>
+      <option value="navigate">Navigate</option>
+    </select>
+
+    <label>Désactivé :</label>
+    <input type="checkbox" [(ngModel)]="element.properties['disabled']" />
+  </div>
+
+  <!-- INPUT -->
+  <div *ngIf="element.type === 'input'">
+    <label>Placeholder :</label>
+    <input [(ngModel)]="element.properties['placeholder']" />
+
+    <label>Type :</label>
+    <select [(ngModel)]="element.properties['inputType']">
+      <option value="text">Texte</option>
+      <option value="number">Nombre</option>
+      <option value="email">Email</option>
+      <option value="password">Mot de passe</option>
+      <option value="date">Date</option>
+    </select>
+
+    <label>Valeur par défaut :</label>
+    <input [(ngModel)]="element.properties['defaultValue']" />
+
+    <label>Largeur (px) :</label>
+    <input type="number" [(ngModel)]="element.properties['width']" />
+
+    <label>Est requis :</label>
+    <input type="checkbox" [(ngModel)]="element.properties['required']" />
+
+    <label>Désactivé :</label>
+    <input type="checkbox" [(ngModel)]="element.properties['disabled']" />
+  </div>
+
+  <!-- TEXTAREA -->
+  <div *ngIf="element.type === 'textarea'">
+    <label>Placeholder :</label>
+    <input [(ngModel)]="element.properties['placeholder']" />
+
+    <label>Nombre de lignes :</label>
+    <input type="number" [(ngModel)]="element.properties['rows']" />
+
+    <label>Largeur (px) :</label>
+    <input type="number" [(ngModel)]="element.properties['width']" />
+
+    <label>Est requis :</label>
+    <input type="checkbox" [(ngModel)]="element.properties['required']" />
+
+    <label>Désactivé :</label>
+    <input type="checkbox" [(ngModel)]="element.properties['disabled']" />
+  </div>
+
+  <!-- LABEL -->
+  <div *ngIf="element.type === 'label'">
+    <label>Texte :</label>
+    <input [(ngModel)]="element.properties['text']" />
+
+    <label>Couleur de texte :</label>
+    <input type="color" [(ngModel)]="element.properties['color']" />
+
+    <label>Taille de police (px) :</label>
+    <input type="number" [(ngModel)]="element.properties['fontSize']" />
+
+    <label>Alignement :</label>
+    <select [(ngModel)]="element.properties['align']">
+      <option value="left">Gauche</option>
+      <option value="center">Centre</option>
+      <option value="right">Droite</option>
+    </select>
+  </div>
+
+  <!-- CHECKBOX -->
+  <div *ngIf="element.type === 'checkbox'">
+    <label>Label :</label>
+    <input [(ngModel)]="element.properties['label']" />
+
+    <label>Est coché par défaut :</label>
+    <input type="checkbox" [(ngModel)]="element.properties['checked']" />
+
+    <label>Désactivé :</label>
+    <input type="checkbox" [(ngModel)]="element.properties['disabled']" />
+  </div>
+
+  <!-- IMAGE -->
+  <div *ngIf="element.type === 'image'">
+    <label>Image URL :</label>
+    <input [(ngModel)]="element.properties['src']" />
+
+    <label>Largeur (px) :</label>
+    <input type="number" [(ngModel)]="element.properties['width']" />
+
+    <label>Hauteur (px) :</label>
+    <input type="number" [(ngModel)]="element.properties['height']" />
+
+    <label>Alt Text :</label>
+    <input [(ngModel)]="element.properties['alt']" />
+  </div>
+
+  <!-- SELECT -->
+  <div *ngIf="element.type === 'select'">
+    <label>Options (séparées par des virgules) :</label>
+    <input
+      [ngModel]="element.properties['options']?.join(', ')"
+      (ngModelChange)="updateOptions($event)"
+    />
+
+    <label>Valeur par défaut :</label>
+    <input [(ngModel)]="element.properties['defaultValue']" />
+
+    <label>Est requis :</label>
+    <input type="checkbox" [(ngModel)]="element.properties['required']" />
+
+    <label>Désactivé :</label>
+    <input type="checkbox" [(ngModel)]="element.properties['disabled']" />
+  </div>
+
+  <!-- CONTAINER -->
+  <div *ngIf="element.type === 'container'">
+    <label>Couleur de fond :</label>
+    <input [(ngModel)]="element.properties['backgroundColor']" type="color" />
+
+    <label>Padding (px) :</label>
+    <input type="number" [(ngModel)]="element.properties['padding']" />
+
+    <label>Margin (px) :</label>
+    <input type="number" [(ngModel)]="element.properties['margin']" />
+
+    <label>Alignement des éléments :</label>
+    <select [(ngModel)]="element.properties['alignItems']">
+      <option value="start">Début</option>
+      <option value="center">Centre</option>
+      <option value="end">Fin</option>
+      <option value="space-between">Space Between</option>
+      <option value="space-around">Space Around</option>
+    </select>
+  </div>
+
+  <!-- DIVIDER -->
+  <div *ngIf="element.type === 'divider'">
+    <label>Couleur :</label>
+    <input type="color" [(ngModel)]="element.properties['color']" />
+
+    <label>Épaisseur (px) :</label>
+    <input type="number" [(ngModel)]="element.properties['thickness']" />
+
+    <label>Style :</label>
+    <select [(ngModel)]="element.properties['style']">
+      <option value="solid">Solide</option>
+      <option value="dashed">Tirets</option>
+      <option value="dotted">Pointillés</option>
+    </select>
+  </div>
+</div>
+
+<ng-template #noSelection>
+  <p>Aucun élément sélectionné.</p>
+</ng-template>
+</div>

@@ -1,0 +1,47 @@
+/* Centrer le contenu verticalement et horizontalement */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Titre principal */
+.container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+/* Paragraphe */
+.container p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* Bouton d'accès au designer */
+.start-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 2rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.start-button:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+.start-button:active {
+  transform: translateY(0);
+}

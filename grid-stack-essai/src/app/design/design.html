@@ -1,0 +1,36 @@
+
+<div class="test-container">
+  <div class="layout-container">
+    
+  <div class="left-panel">
+    <div class="trash" id="trash"></div>
+      <div class="sidebar">
+        <div class="sidebar-item grid-stack-item">bouton</div>
+        <div class="sidebar-item grid-stack-item">text area</div>
+        <div class="sidebar-item grid-stack-item">input</div>
+        <div class="sidebar-item grid-stack-item">select</div>
+        <div class="sidebar-item grid-stack-item">image</div>
+        <div class="sidebar-item grid-stack-item">table</div>
+      </div>
+    </div>
+<div class="right-panel">
+    <gridstack [options]="twoGridOpt1" >
+  <ng-template let-node>
+    <div class="grid-stack-item-content" (click)="onWidgetClick(node)"> {{ node.id }} </div>
+  </ng-template>
+</gridstack>
+
+</div>
+  <changer-proprietes [element]="selectedElement"></changer-proprietes>
+</div>
+    
+
+</div>
+
+
+  <!--div class="text-container">
+    <textarea #origTextArea cols="50" rows="50" readonly="readonly"></textarea>
+    <textarea #textArea cols="50" rows="50" readonly="readonly"></textarea>
+  </div-->
+
+

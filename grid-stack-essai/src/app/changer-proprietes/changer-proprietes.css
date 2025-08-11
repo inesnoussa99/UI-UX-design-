@@ -1,0 +1,11 @@
+.properties-panel {
+  background: #fff;
+  border-left: 1px solid #ccc;
+  padding: 16px;
+  min-width: 250px;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+}
+.properties-panel input {
+  margin-top: 5px;
+  width: 100%;
+}
