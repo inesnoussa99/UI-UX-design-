@@ -70,7 +70,7 @@ export class Design implements OnInit {
     console.log('resizestop ', data.el.gridstackNode);
   }
 
-©
+
   public add() {
     this.gridComp?.grid?.addWidget({x:3, y:0, w:2, content:`item ${ids}`, id:String(ids++)});
   }
